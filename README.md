@@ -107,14 +107,23 @@ function Dashboard() {
 git clone https://github.com/Kohnnn/vnibb-widgets.git
 
 # Install
-pnpm install
+npm install
+
+# Lint TypeScript source
+npm run lint
 
 # Build
-pnpm build
+npm run build
 
 # Watch mode
-pnpm dev
+npm run dev
 ```.
+
+The native CI verification runs `npm install`, `npm run lint`, and `npm run build`.
+ESLint uses the recommended JavaScript and TypeScript rules; lint tooling is
+declared locally so the lint command does not depend on a global installation.
+Dependencies are resolved by `package-lock.json`; generated `node_modules` is not
+committed, so npm creates platform-compatible executable links during installation.
 
 ---
 
